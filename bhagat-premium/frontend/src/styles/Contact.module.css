@@ -1,0 +1,32 @@
+.layout { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; gap: 40px; } }
+
+.infoCol {}
+.heading { font-family: 'Playfair Display', Georgia, serif; font-size: 30px; font-weight: 700; color: var(--text-primary); margin-bottom: 14px; }
+.subtext { font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 32px; }
+
+.contactItems { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.contactItem {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 16px 18px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 14px;
+  text-decoration: none; color: var(--text);
+  transition: all 0.25s ease;
+}
+.contactItem:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.contactIcon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.contactLabel { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 3px; }
+.contactValue { font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.45; }
+
+.mapWrap { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); }
+.mapWrap iframe { width: 100%; display: block; }
+
+/* Form */
+.formCol {}
+.formBox { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 36px; box-shadow: var(--shadow-md); }
+.formTitle { font-family: 'Playfair Display', Georgia, serif; font-size: 24px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+.formSub { font-size: 14px; color: var(--text-muted); margin-bottom: 28px; }
+
+.altContact { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; }
+.altContact p { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+.altBtns { display: flex; gap: 10px; justify-content: center; }

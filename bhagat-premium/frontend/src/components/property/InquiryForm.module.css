@@ -1,0 +1,56 @@
+.formBox {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 28px;
+  box-shadow: var(--shadow-md); position: sticky; top: 90px;
+}
+.formTitle { font-family: 'Playfair Display', Georgia, serif; font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.formSub   { font-size: 13px; color: var(--text-muted); margin-bottom: 22px; }
+
+.tabs { display: flex; gap: 4px; background: var(--bg-subtle); border-radius: 10px; padding: 4px; margin-bottom: 22px; }
+.tab {
+  flex: 1; padding: 9px; border: none; border-radius: 8px;
+  font-size: 13px; font-weight: 600; color: var(--text-secondary);
+  background: transparent; cursor: pointer; transition: all 0.2s ease; text-align: center;
+}
+.tabActive { background: var(--bg-card); color: var(--text); box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+
+.formGroup { margin-bottom: 16px; }
+.label { display: block; font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; }
+.input {
+  width: 100%; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px;
+  font-size: 14px; color: var(--text); background: var(--bg-input, var(--bg)); outline: none; transition: all 0.2s;
+}
+.input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(212,175,55,0.10); }
+.error { border-color: var(--error) !important; }
+.errMsg { font-size: 12px; color: var(--error); margin-top: 4px; display: block; }
+
+.submitBtn {
+  width: 100%; padding: 14px;
+  background: linear-gradient(135deg, #D4AF37, #F0D060);
+  color: #0F172A; border: none; border-radius: 10px;
+  font-size: 15px; font-weight: 700; cursor: pointer;
+  transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.submitBtn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(212,175,55,0.4); }
+.submitBtn:disabled { opacity: 0.6; transform: none; cursor: not-allowed; }
+
+.successMsg {
+  text-align: center; padding: 28px 16px;
+  background: var(--success-bg, rgba(22,163,74,0.08));
+  border: 1px solid rgba(22,163,74,0.2);
+  border-radius: 12px;
+}
+.successMsg h4 { font-size: 18px; font-weight: 700; color: var(--success); margin-bottom: 8px; }
+.successMsg p  { font-size: 14px; color: var(--text-secondary); }
+
+.ctaRow { display: flex; gap: 10px; margin-top: 16px; }
+.ctaBtn {
+  flex: 1; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  text-decoration: none; transition: all 0.2s ease; border: none; cursor: pointer;
+}
+.callCta { background: #0F172A; color: white; }
+[data-theme="dark"] .callCta { background: var(--accent); color: #0F172A; }
+.callCta:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.waCta   { background: #25d366; color: white; }
+.waCta:hover { background: #1da851; transform: translateY(-1px); }

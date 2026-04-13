@@ -1,0 +1,32 @@
+{
+  "name": "bhagat-estates-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.6.2",
+    "framer-motion": "^10.16.16",
+    "react-hook-form": "^7.49.2",
+    "react-icons": "^4.12.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "react-datepicker": "^4.25.0",
+    "react-select": "^5.8.0",
+    "swr": "^2.2.4",
+    "date-fns": "^3.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.0.4"
+  }
+}

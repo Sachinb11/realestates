@@ -1,0 +1,137 @@
+.page { display: flex; min-height: 100vh; }
+
+/* ── Left Panel ── */
+.leftPanel {
+  flex: 1;
+  background: linear-gradient(135deg, #04080f 0%, #0F172A 50%, #1a2d45 100%);
+  padding: 60px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.leftPanel::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(212,175,55,0.13) 0%, transparent 65%);
+  border-radius: 50%;
+}
+.leftPanel::after {
+  content: '';
+  position: absolute;
+  bottom: -15%; left: -5%;
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(212,175,55,0.06) 0%, transparent 65%);
+  border-radius: 50%;
+}
+
+.leftContent { position: relative; z-index: 1; max-width: 440px; }
+
+/* Brand with real logo */
+.brand { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+
+.brandLogoWrap {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: white;
+  border: 3px solid rgba(212,175,55,0.6);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  padding: 3px;
+  box-shadow: 0 0 0 6px rgba(212,175,55,0.12), 0 0 24px rgba(212,175,55,0.2);
+}
+.brandLogoImg { width: 100%; height: 100%; object-fit: contain; }
+
+.brandName    { font-size: 20px; font-weight: 700; color: white; font-family: 'Cormorant Garamond', serif; }
+.brandTagline { font-size: 12px; color: rgba(212,175,55,0.6); letter-spacing: 1.8px; text-transform: uppercase; margin-top: 3px; }
+
+.heroHeading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 40px; font-weight: 700;
+  color: white;
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+.heroText {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.75;
+  margin-bottom: 40px;
+}
+
+.featureList { display: flex; flex-direction: column; gap: 12px; }
+.featureItem {
+  font-size: 14px;
+  color: rgba(255,255,255,0.78);
+  padding: 12px 18px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  border-left: 3px solid #D4AF37;
+  transition: all 0.22s;
+}
+.featureItem:hover { background: rgba(255,255,255,0.1); }
+
+/* ── Right Panel ── */
+.rightPanel {
+  width: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: #F8FAFC;
+}
+@media (max-width: 900px) { .leftPanel { display: none; } .rightPanel { width: 100%; } }
+@media (max-width: 480px) { .rightPanel { padding: 20px; } }
+
+/* ── Form Card ── */
+.formCard {
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.09);
+  border: 1px solid #E2E8F0;
+  border-top: 4px solid #D4AF37;
+}
+@media (max-width: 480px) { .formCard { padding: 28px 20px; } }
+
+/* Logo at top of form */
+.formLogo { display: flex; justify-content: center; margin-bottom: 20px; }
+.formLogoWrap {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: white;
+  border: 3px solid rgba(212,175,55,0.5);
+  padding: 4px;
+  box-shadow: 0 4px 16px rgba(212,175,55,0.2);
+}
+.formLogoImg { width: 100%; height: 100%; object-fit: contain; }
+
+.formHeader   { text-align: center; margin-bottom: 28px; }
+.formTitle    { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 700; color: #0F172A; margin-bottom: 6px; }
+.formSubtitle { color: #94A3B8; font-size: 14px; }
+
+.pwWrap   { position: relative; }
+.pwToggle {
+  position: absolute; right: 12px; top: 50%;
+  transform: translateY(-50%);
+  background: none; border: none;
+  font-size: 16px; cursor: pointer;
+  color: #94A3B8; transition: all 0.2s;
+}
+.pwToggle:hover { color: #0F172A; }
+
+.loginBtn { width: 100%; justify-content: center; padding: 14px; font-size: 15px; margin-top: 8px; }
+
+.formFooter {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: #94A3B8;
+}
+.formFooter a { color: #D4AF37; font-weight: 600; text-decoration: none; }
+.formFooter a:hover { color: #B8960C; }

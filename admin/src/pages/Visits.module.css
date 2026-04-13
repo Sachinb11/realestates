@@ -1,0 +1,32 @@
+.upcomingBanner { display: flex; align-items: center; gap: 10px; background: rgba(49,130,206,0.08); border: 1px solid rgba(49,130,206,0.25); border-radius: var(--radius); padding: 14px 18px; margin-bottom: 20px; font-size: 14px; }
+.upcomingIcon { font-size: 20px; }
+.filterTabs { display: flex; gap: 0; background: white; border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; }
+.filterTab { flex: 1; padding: 11px; font-size: 13px; font-weight: 600; background: none; border: none; border-right: 1px solid var(--border); cursor: pointer; color: var(--text-muted); transition: all 0.2s; }
+.filterTab:last-child { border-right: none; }
+.filterTab:hover { background: #f8fafc; color: var(--text); }
+.filterTabActive { background: var(--primary); color: white; }
+.tabCount { font-weight: 400; opacity: 0.7; }
+
+.visitGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 1100px) { .visitGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .visitGrid { grid-template-columns: 1fr; } }
+
+.visitCard { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); transition: all 0.2s; }
+.visitCard:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.visitPast { opacity: 0.65; }
+
+.visitHeader { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+.visitDate { text-align: center; background: var(--primary); color: white; border-radius: 8px; padding: 8px 14px; min-width: 56px; }
+.visitDay { font-size: 24px; font-weight: 800; line-height: 1; }
+.visitMonth { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+.visitTime { font-size: 12px; color: var(--text-muted); margin-top: 6px; }
+
+.visitPerson { margin-bottom: 10px; }
+.visitPerson strong { font-size: 16px; }
+.visitContacts { display: flex; gap: 12px; margin-top: 4px; }
+.visitContacts a { font-size: 13px; color: var(--primary); font-weight: 600; }
+
+.visitProp { font-size: 13px; color: var(--text-secondary); background: #f8fafc; padding: 8px 12px; border-radius: 6px; margin-bottom: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.visitMsg { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; border-left: 3px solid var(--border); padding-left: 10px; }
+
+.visitActions { display: flex; gap: 8px; align-items: center; margin-top: 14px; border-top: 1px solid var(--border); padding-top: 14px; }

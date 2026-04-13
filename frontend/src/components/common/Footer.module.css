@@ -1,0 +1,96 @@
+.footer { background: #080E1A; color: rgba(255,255,255,0.65); }
+.top    { padding: 64px 0 48px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+  gap: 48px;
+}
+@media(max-width:1024px){ .grid{ grid-template-columns:1fr 1fr; gap:40px; } }
+@media(max-width:640px){  .grid{ grid-template-columns:1fr; gap:32px; } }
+
+/* Brand */
+.brand {}
+.logoRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+/* White background circle so logo is visible on dark footer */
+.logoImgWrap {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: white;
+  border: 2.5px solid rgba(212,175,55,0.5);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+  transition: all 0.28s ease;
+}
+.logoImgWrap:hover {
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 4px rgba(212,175,55,0.2);
+}
+
+.logoName    { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 700; color: white; }
+.logoTagline { font-size: 11px; color: rgba(212,175,55,0.6); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px; }
+
+.brandDesc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 22px;
+}
+
+.socialRow { display: flex; gap: 10px; }
+.socialBtn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.socialBtn:hover { transform: translateY(-3px); opacity: 0.88; }
+
+/* Columns */
+.colTitle {
+  font-size: 12px; font-weight: 700;
+  color: white;
+  text-transform: uppercase; letter-spacing: 1.8px;
+  margin-bottom: 18px;
+}
+
+.linkList { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.link {
+  font-size: 14px; color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: all 0.22s ease;
+  display: flex; align-items: center; gap: 6px;
+}
+.link::before { content: '›'; color: #D4AF37; font-size: 17px; }
+.link:hover   { color: #D4AF37; padding-left: 4px; }
+
+/* Contact list */
+.contactList { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.contactList li {
+  display: flex; gap: 10px;
+  font-size: 14px; color: rgba(255,255,255,0.55);
+  line-height: 1.55; align-items: flex-start;
+}
+.contactIcon  { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
+.contactLink  { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.22s; }
+.contactLink:hover { color: #D4AF37; }
+
+/* Bottom bar */
+.bottom { border-top: 1px solid rgba(255,255,255,0.07); padding: 20px 0; }
+.bottomInner {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 8px;
+  font-size: 13px; color: rgba(255,255,255,0.3);
+}

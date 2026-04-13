@@ -1,0 +1,144 @@
+.filterPanel {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg);
+}
+
+.filterHeader h3 { font-size: 16px; font-weight: 700; color: var(--primary); }
+
+.resetBtn {
+  font-size: 13px;
+  color: var(--error);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+.resetBtn:hover { background: rgba(229, 62, 62, 0.1); }
+
+.filterBody {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.filterGroup {}
+
+.filterLabel {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 10px;
+}
+
+.pillGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pill {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1.5px solid var(--border);
+  background: white;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.pillActive {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Compact Form (for hero/header) */
+.compactForm {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 6px;
+  box-shadow: var(--shadow-xl);
+}
+
+.compactSearch {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.compactInput {
+  width: 100%;
+  padding: 14px 16px 14px 42px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.compactSelect {
+  padding: 14px 16px;
+  border: none;
+  border-left: 1px solid var(--border);
+  outline: none;
+  font-size: 14px;
+  color: var(--text-secondary);
+  background: transparent;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.compactBtn {
+  border-radius: var(--radius-md);
+  padding: 12px 28px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .compactForm {
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+  }
+  .compactSearch { width: 100%; }
+  .compactSelect { border-left: none; border-top: 1px solid var(--border); width: 100%; }
+  .compactBtn { width: 100%; justify-content: center; }
+}
