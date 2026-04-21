@@ -29,7 +29,14 @@
   background: var(--border-light);
 }
 .mainImg { width: 100%; height: 100%; object-fit: cover; }
-.noImage { display: flex; align-items: center; justify-content: center; height: 100%; font-size: 18px; color: var(--text-muted); }
+.noImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 16px;
+  color: var(--text-muted);
+}
 .featuredTag {
   position: absolute; top: 16px; left: 16px;
   background: var(--accent); color: white;
