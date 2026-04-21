@@ -9,47 +9,35 @@ require('dotenv').config();
 
 const app = express();
 
-// ─── Security Middleware ─────────────────────────────────────────────────────
+// Security
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 200,
-  message: { success: false, message: 'Too many requests, please try again later.' }
 });
 app.use('/api/', limiter);
 
-// ─── CORS ────────────────────────────────────────────────────────────────────
+// CORS
 app.use(cors({
-  origin: [
-    process.env.CLIENT_URL || 'http://localhost:3000',
-    process.env.ADMIN_URL || 'http://localhost:3001',
-    'http://localhost:3000',
-    'http://localhost:3001'
-  ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: '*', // 🔥 TEMP FIX (later restrict karna)
 }));
 
-// ─── Body Parsing ─────────────────────────────────────────────────────────────
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+// Body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// ─── Logging ─────────────────────────────────────────────────────────────────
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-}
+// Logging
+app.use(morgan('dev'));
 
-// ─── Static Files ─────────────────────────────────────────────────────────────
+// Static
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// ─── Database Connection ──────────────────────────────────────────────────────
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/bhagat_estates')
-  .then(() => console.log('✅ MongoDB Connected'))
-  .catch(err => console.error('❌ MongoDB Error:', err));
+// Routes
+app.get('/', (req, res) => {
+  res.send("API Running 🚀");
+});
 
-// ─── Routes ──────────────────────────────────────────────────────────────────
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/properties', require('./routes/properties'));
 app.use('/api/leads', require('./routes/leads'));
@@ -57,37 +45,36 @@ app.use('/api/visits', require('./routes/visits'));
 app.use('/api/dashboard', require('./routes/dashboard'));
 app.use('/api/upload', require('./routes/upload'));
 
-// ─── Health Check ─────────────────────────────────────────────────────────────
+// Health
 app.get('/api/health', (req, res) => {
   res.json({
     success: true,
-    message: 'Bhagat Estates API is running',
-    timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV
+    message: 'Bhagat Estates API is running'
   });
 });
 
-// ─── 404 Handler ──────────────────────────────────────────────────────────────
+// 404
 app.use('*', (req, res) => {
   res.status(404).json({ success: false, message: 'Route not found' });
 });
 
-// ─── Global Error Handler ─────────────────────────────────────────────────────
-app.use((err, req, res, next) => {
-  console.error('Error:', err);
-  const statusCode = err.statusCode || 500;
-  res.status(statusCode).json({
-    success: false,
-    message: err.message || 'Internal Server Error',
-    ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
-  });
-});
+// 🔥 IMPORTANT FIX: Start server AFTER DB connect
+const startServer = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("✅ MongoDB Connected");
 
-// ─── Start Server ─────────────────────────────────────────────────────────────
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Bhagat Estates API running on port ${PORT}`);
-  console.log(`📍 Environment: ${process.env.NODE_ENV}`);
-});
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
+    });
+
+  } catch (error) {
+    console.error("❌ MongoDB Error:", error);
+    process.exit(1); // 🔥 Render ko clear error milega
+  }
+};
+
+startServer();
 
 module.exports = app;
