@@ -83,4 +83,21 @@ router.put('/change-password', protect, [
   }
 });
 
+// TEMP: Create Admin (DELETE later)
+router.get('/create-admin', async (req, res) => {
+  try {
+    await Admin.deleteMany({ email: "admin@bhagatestates.com" });
+
+    const admin = await Admin.create({
+      name: "Sachin",
+      email: "admin@bhagatestates.com",
+      password: "Admin@123456"
+    });
+
+    res.json({ success: true, admin });
+  } catch (err) {
+    res.json({ success: false, error: err.message });
+  }
+});
+
 module.exports = router;
